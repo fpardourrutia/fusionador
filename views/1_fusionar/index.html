@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<form action="" enctype="multipart/form-data" method="post">
+    <input type="hidden"  name="_formname" value="formaHTML"/>
+    <fieldset>
+        <legend>
+            Fusionar bases de datos
+        </legend>
+        <label for="tabla_archivos_csv">Archivos tipo csv:</label>
+        <input name="archivos_csv" id="tabla_archivos_csv" type="file" multiple/>
+    </fieldset>
+    <input type="submit" value="Enviar" class="btn" id="enviar"/>
+</form>

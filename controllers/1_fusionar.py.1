@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+def index():
+    #Creando una forma para que suban los archivos CSV"
+
+    Campos_forma = [
+        INPUT(_name='archivos_csv',_type='file',requires=IS_NOT_EMPTY(),
+              multiple=True),
+    ]
+    return dict()
