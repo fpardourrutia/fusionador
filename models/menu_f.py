@@ -23,7 +23,7 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [
-    (T('Fusionar datos'), False, URL('1_fusionar', 'index'), []),
+    (T('Fusionar datos'), False, URL('1_fusionar_f', 'index'), []),
     # (T('Cámara'), False, URL('2_camara', 'index'), []),
     # (T('Grabadora'), False, URL('3_grabadora', 'index'), []),
     # (T('Especies invasoras'), False, URL('4_especies_invasoras', 'index1'), [
@@ -36,19 +36,19 @@ response.menu = [
     #   (T('Especies invasoras'), False, URL('6_registros_extra', 'index1')),
     #   (T('Huellas y excretas'), False, URL('6_registros_extra', 'index2')),
     #   (T('Especímenes y restos'), False, URL('6_registros_extra', 'index3'))]),
-    # # Edición
-    # (T('Revisar registros'), False, URL('7_edicion', 'editarConglomerado'), [
-    #   (T('Conglomerado'), False, URL('7_edicion', 'editarConglomerado')),
-    #   (T('Cámara'), False, URL('7_edicion', 'editarCamara')),
-    #   (T('Grabadora'), False, URL('7_edicion', 'editarGrabadora')),
-    #   (T('Especies Invasoras'), False, URL('7_edicion', 'editarEspeciesInvasoras')),
-    #   (T('Huellas y excretas'), False, URL('7_edicion', 'editarHuellasExcretas')),
-    #   (T('Especies Invasoras extra'), False, URL('7_edicion', 'editarEspeciesInvasorasExtra')),
-    #   (T('Huellas y excretas extra'), False, URL('7_edicion', 'editarHuellasExcretasExtra')),
-    #   (T('Especímenes extra'), False, URL('7_edicion', 'editarEspecimenExtra'))]),
-    # (T('Revisar imágenes'), False, URL('8_revision', 'index'), []),
-    # # Exportación
-    # (T('Exportar datos'), False, URL('9_exportador', 'index'), [])
+    # Edición
+    (T('Revisar registros'), False, URL('2_editar_f', 'editarConglomerado'), [
+      (T('Conglomerado'), False, URL('2_editar_f', 'editarConglomerado')),
+      (T('Cámara'), False, URL('2_editar_f', 'editarCamara')),
+      (T('Grabadora'), False, URL('2_editar_f', 'editarGrabadora')),
+      (T('Especies Invasoras'), False, URL('2_editar_f', 'editarEspeciesInvasoras')),
+      (T('Huellas y excretas'), False, URL('2_editar_f', 'editarHuellasExcretas')),
+      (T('Especies Invasoras extra'), False, URL('2_editar_f', 'editarEspeciesInvasorasExtra')),
+      (T('Huellas y excretas extra'), False, URL('2_editar_f', 'editarHuellasExcretasExtra')),
+      (T('Especímenes extra'), False, URL('2_editar_f', 'editarEspecimenExtra'))]),
+    (T('Revisar imágenes'), False, URL('3_revisar_f', 'index'), []),
+    # Exportación
+    (T('Exportar datos'), False, URL('4_exportar_f', 'index'), [])
     ]
     
 DEVELOPMENT_MENU = False
