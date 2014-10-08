@@ -45,6 +45,7 @@ def index():
             #mismos (por eso se eliminan después de cada iteración:)
 
             db(db.Cat_tipo_conglomerado).delete()
+            db(db.Cat_compania).delete()
             db(db.Cat_estado_conglomerado).delete()
             db(db.Cat_tenencia_conglomerado).delete()
             db(db.Cat_suelo_conglomerado).delete()
@@ -75,6 +76,11 @@ def index():
             db.Cat_tipo_conglomerado.insert(nombre='Inaccesible gabinete')
             db.Cat_tipo_conglomerado.insert(nombre='Supervisión interna')
             db.Cat_tipo_conglomerado.insert(nombre='Biodiversidad')
+        #########################################################################
+
+        if db(db.Cat_compania.id>0).count() == 0:
+            db.Cat_compania.insert(nombre='Compañía 1')
+            db.Cat_compania.insert(nombre='Compañía 2')
         #########################################################################
 
         if db(db.Cat_estado_conglomerado.id>0).count() == 0:

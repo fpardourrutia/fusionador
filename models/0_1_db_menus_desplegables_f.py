@@ -9,6 +9,9 @@
 db.define_table('Cat_tipo_conglomerado', Field('nombre', 'string', required='TRUE'))
 #########################################################################
 
+db.define_table('Cat_compania', Field('nombre', 'string', required='TRUE'))
+#########################################################################
+
 db.define_table('Cat_estado_conglomerado', 
     Field('clave_ent','integer',required='TRUE'),
     Field('nombre','string',required='TRUE'))
