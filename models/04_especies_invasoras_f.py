@@ -10,16 +10,15 @@
 
 Campos_Transecto_especies_invasoras_muestra =[
 
-	Field('conglomerado_muestra_id','reference Conglomerado_muestra',
-		required=True),
-	Field('fecha','date',required=True),
+	Field('conglomerado_muestra_id','reference Conglomerado_muestra'),
+	Field('fecha','date'),
 
     #Se insertará a partir de un catálogo
-	Field('transecto_numero','string', required=True),
+	Field('transecto_numero','string'),
 
-	Field('tecnico','string',required=True),
-    Field('hora_inicio','time',required=True),
-	Field('hora_termino','time',required=True),
+	Field('tecnico','string'),
+    Field('hora_inicio','time'),
+	Field('hora_termino','time'),
     Field('comentario','text')
 ]
 
@@ -35,13 +34,13 @@ db.define_table('Transecto_especies_invasoras_muestra',
 
 Campos_Especie_invasora =[
 
-	Field('transecto_especies_invasoras_id','reference Transecto_especies_invasoras_muestra', required=True),
-	Field('nombre_en_lista','boolean', required=True),
+	Field('transecto_especies_invasoras_id','reference Transecto_especies_invasoras_muestra'),
+	Field('nombre_en_lista','boolean'),
 	Field('nombre_comun','string'),
     Field('nombre_cientifico','string'),
 
     #Se insertará a partir de un catálogo
-    Field('numero_individuos', 'string', required=True)
+    Field('numero_individuos', 'string')
 ]
 
 db.define_table('Especie_invasora',*Campos_Especie_invasora,
@@ -53,9 +52,9 @@ db.define_table('Especie_invasora',*Campos_Especie_invasora,
 
 Campos_Archivo_especie_invasora =[
 
-	Field('especie_invasora_id','reference Especie_invasora',required=True),
-    Field('archivo_nombre_original',required=True),
-    Field('archivo', 'upload', autodelete=True,required=True)
+	Field('especie_invasora_id','reference Especie_invasora'),
+    Field('archivo_nombre_original'),
+    Field('archivo', 'upload', autodelete=True)
 ]
 
 db.define_table('Archivo_especie_invasora',*Campos_Archivo_especie_invasora,

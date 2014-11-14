@@ -8,7 +8,7 @@
 <form>
     <fieldset>
         <legend>
-            Revisión de imágenes
+            Selección de fauna (opcional)
         </legend>
         <select class="generic-widget" name="foto" id="tabla_foto">
             <option value=""/>
@@ -35,18 +35,18 @@ y hay_individuo, para poder actualizar la base de datos-->
 <script>
 
     //AJAX para llenar la pestaña de revisión de fotografías
-	$('#tabla_foto').change
-	(
-    	function()
-    	{
-    		$('#forma_shadow').remove();
+    $('#tabla_foto').change
+    (
+        function()
+        {
+            $('#forma_shadow').remove();
 
             //ajax es una función de Web2py que simplifica la función homónima de JQuery
             //recibe el URL destino, los nombres de los campos que se enviarán y el ID
             // del elemento donde se insertará la respuesta
-    		ajax("{{=URL('obtenerFotografia')}}", ['foto'], 'shadow_clone');
-    	}
-   	)
+            ajax("{{=URL('obtenerFotografia')}}", ['foto'], 'shadow_clone');
+        }
+    )
 
     //AJAX para editar la información de una fotografia
     $('#shadow_clone').on('click', '#tabla_enviar', function (){

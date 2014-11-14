@@ -45,7 +45,6 @@ def index():
             #mismos (por eso se eliminan después de cada iteración:)
 
             db(db.Cat_tipo_conglomerado).delete()
-            db(db.Cat_compania).delete()
             db(db.Cat_estado_conglomerado).delete()
             db(db.Cat_tenencia_conglomerado).delete()
             db(db.Cat_suelo_conglomerado).delete()
@@ -61,13 +60,29 @@ def index():
             db(db.Cat_conabio_invasoras).delete()
             db(db.Cat_municipio_conglomerado).delete()
 
+            ######Exclusivos de CONANP
+            db(db.Cat_material_carbono).delete()
+            db(db.Cat_grado_carbono).delete()
+            db(db.Cat_transecto_direccion).delete()
+            db(db.Cat_forma_vida).delete()
+            db(db.Cat_condiciones_ambientales).delete()
+            db(db.Cat_tipo_impacto).delete()
+            db(db.Cat_severidad_impactos).delete()
+            db(db.Cat_agente_impactos).delete()
+            db(db.Cat_estatus_impactos).delete()
+            db(db.Cat_prop_afectacion).delete()
+            db(db.Cat_incendio).delete()
+
         #Al terminar de insertar, rellenar los catálogos:
+
+        ## El if indica que las tablas se llenarán únicamente cuando estan vacías
 
         ##########################################################################
         ## Pestaña Conglomerado
         ########################################################################
 
         ## El if indica que las tablas se llenarán únicamente cuando estan vacías
+
         if db(db.Cat_tipo_conglomerado.id>0).count() == 0:
             db.Cat_tipo_conglomerado.insert(nombre='Inicial')
             db.Cat_tipo_conglomerado.insert(nombre='Remplazo')
@@ -76,11 +91,7 @@ def index():
             db.Cat_tipo_conglomerado.insert(nombre='Inaccesible gabinete')
             db.Cat_tipo_conglomerado.insert(nombre='Supervisión interna')
             db.Cat_tipo_conglomerado.insert(nombre='Biodiversidad')
-        #########################################################################
 
-        if db(db.Cat_compania.id>0).count() == 0:
-            db.Cat_compania.insert(nombre='Compañía 1')
-            db.Cat_compania.insert(nombre='Compañía 2')
         #########################################################################
 
         if db(db.Cat_estado_conglomerado.id>0).count() == 0:
@@ -116,6 +127,7 @@ def index():
             db.Cat_estado_conglomerado.insert(clave_ent='30', nombre='Veracruz')
             db.Cat_estado_conglomerado.insert(clave_ent='31', nombre='Yucatán')
             db.Cat_estado_conglomerado.insert(clave_ent='32', nombre='Zacatecas') 
+
         #########################################################################
 
         if db(db.Cat_tenencia_conglomerado.id>0).count() == 0:
@@ -123,6 +135,7 @@ def index():
             db.Cat_tenencia_conglomerado.insert(nombre='Comunal')
             db.Cat_tenencia_conglomerado.insert(nombre='Propiedad particular')
             db.Cat_tenencia_conglomerado.insert(nombre='Propiedad federal')
+
         #########################################################################
 
         if db(db.Cat_suelo_conglomerado.id>0).count() == 0:
@@ -139,6 +152,7 @@ def index():
             db.Cat_suelo_conglomerado.insert(nombre='Incendios')
             db.Cat_suelo_conglomerado.insert(nombre='Vegetación')
             db.Cat_suelo_conglomerado.insert(nombre='Otros')
+
         #########################################################################
 
         if db(db.Cat_vegetacion_conglomerado.id>0).count() == 0:
@@ -152,6 +166,7 @@ def index():
             db.Cat_vegetacion_conglomerado.insert( nombre='Matorral desértico')
             db.Cat_vegetacion_conglomerado.insert( nombre='Humedal arbóreo')
             db.Cat_vegetacion_conglomerado.insert( nombre='Humedal herbáceo')
+
         #########################################################################
 
         if db(db.Cat_numero_sitio.id>0).count() == 0:
@@ -160,12 +175,12 @@ def index():
             db.Cat_numero_sitio.insert(nombre='Sitio 3')
             db.Cat_numero_sitio.insert(nombre='Sitio 4')
             db.Cat_numero_sitio.insert(nombre='Punto de control')
+
         #########################################################################
 
         if db(db.Cat_elipsoide.id>0).count() == 0:
             db.Cat_elipsoide.insert(nombre='NAD27')
             db.Cat_elipsoide.insert(nombre='WGS84')
-        #########################################################################
 
         ##########################################################################
         ## Pestaña Camara
@@ -174,26 +189,28 @@ def index():
         if db(db.Cat_nombre_camara.id>0).count() == 0:
             db.Cat_nombre_camara.insert(nombre='Cámara 1')
             db.Cat_nombre_camara.insert(nombre='Cámara 2')
+
         #########################################################################
 
         if db(db.Cat_resolucion_camara.id>0).count() == 0:
-            db.Cat_resolucion_camara.insert(nombre='Resolución 1')
-            db.Cat_resolucion_camara.insert(nombre='Resolución 2')
+            db.Cat_resolucion_camara.insert(nombre='5MP')
+            db.Cat_resolucion_camara.insert(nombre='12MP')
+            db.Cat_resolucion_camara.insert(nombre='2MP')
+
         #########################################################################
 
         if db(db.Cat_sensibilidad_camara.id>0).count() == 0:
-            db.Cat_sensibilidad_camara.insert(nombre='Sensibilidad 1')
-            db.Cat_sensibilidad_camara.insert(nombre='Sensibilidad 2')
-        #########################################################################
+            db.Cat_sensibilidad_camara.insert(nombre='Normal')
+            db.Cat_sensibilidad_camara.insert(nombre='High')
+            db.Cat_sensibilidad_camara.insert(nombre='Low')
 
         ##########################################################################
         ## Pestaña Grabadora
         ########################################################################
-
+ 
         if db(db.Cat_nombre_grabadora.id>0).count() == 0:
             db.Cat_nombre_grabadora.insert(nombre='Grabadora 1')
             db.Cat_nombre_grabadora.insert(nombre='Grabadora 2')
-        #########################################################################
 
         ##########################################################################
         ## Pestaña Especies Invasoras / Pestaña Huellas y excretas
@@ -203,7 +220,7 @@ def index():
             db.Cat_numero_transecto.insert(nombre='Transecto 2')
             db.Cat_numero_transecto.insert(nombre='Transecto 3')
             db.Cat_numero_transecto.insert(nombre='Transecto 4')
-        #########################################################################
+
 
         ##########################################################################
         ## Pestaña Especies Invasoras
@@ -214,7 +231,6 @@ def index():
             db.Cat_numero_individuos.insert(nombre='1 a 5')
             db.Cat_numero_individuos.insert(nombre='6 a 10')
             db.Cat_numero_individuos.insert(nombre='más de 10')
-        #########################################################################
 
         ##########################################################################
         ## Lista CONABIO de especies invasoras
@@ -245,6 +261,7 @@ def index():
             db.Cat_conabio_invasoras.insert(nombre='Sus scrofa - Cerdo europeo')
             db.Cat_conabio_invasoras.insert(nombre='Tamarix sp. - Pino salado, cedro salado, tamarisco')
             db.Cat_conabio_invasoras.insert(nombre='Otros')
+
         #########################################################################
 
         if db(db.Cat_municipio_conglomerado.id>0).count() == 0:
@@ -2705,6 +2722,109 @@ def index():
             db.Cat_municipio_conglomerado.insert(clave_ent='32',clave_mun='56',nombre='Zacatecas')
             db.Cat_municipio_conglomerado.insert(clave_ent='32',clave_mun='57',nombre='Trancoso')
             db.Cat_municipio_conglomerado.insert(clave_ent='32',clave_mun='58',nombre='Santa María de la Paz')
+
+        #########################################################################
+        ##############                 CONANP                ####################
+        #########################################################################
+
+        if db(db.Cat_material_carbono.id>0).count() == 0:
+            db.Cat_material_carbono.insert(nombre='HP - De pino')
+            db.Cat_material_carbono.insert(nombre='HL - De latifoliadas')
+            db.Cat_material_carbono.insert(nombre='HA - De abies')
+            db.Cat_material_carbono.insert(nombre='MP - Madera putrefacta')
+            db.Cat_material_carbono.insert(nombre='CO - Corteza')
+            db.Cat_material_carbono.insert(nombre='RD - Roca desnuda')
+            db.Cat_material_carbono.insert(nombre='MU - Musgo')
+            db.Cat_material_carbono.insert(nombre='OS - Otros')
+            db.Cat_material_carbono.insert(nombre='NO - No contiene')
+
+        #########################################################################
+
+        if db(db.Cat_grado_carbono.id>0).count() == 0:
+            db.Cat_grado_carbono.insert(nombre=1)
+            db.Cat_grado_carbono.insert(nombre=2)
+            db.Cat_grado_carbono.insert(nombre=3)
+            db.Cat_grado_carbono.insert(nombre=4)
+            db.Cat_grado_carbono.insert(nombre=5)
+
+        #########################################################################
+
+        if db(db.Cat_transecto_direccion.id>0).count() == 0:
+            db.Cat_transecto_direccion.insert(nombre='Norte')
+            db.Cat_transecto_direccion.insert(nombre='Este')
+            db.Cat_transecto_direccion.insert(nombre='Sur')
+            db.Cat_transecto_direccion.insert(nombre='Oeste')
+
+        #########################################################################
+
+        if db(db.Cat_forma_vida.id>0).count() == 0:
+            db.Cat_forma_vida.insert(nombre='Arbustiva')
+            db.Cat_forma_vida.insert(nombre='Arbórea')
+
+        #########################################################################
+
+        if db(db.Cat_condiciones_ambientales.id>0).count() == 0:
+            db.Cat_condiciones_ambientales.insert(nombre='Ninguna')
+            db.Cat_condiciones_ambientales.insert(nombre='Lluvia')
+            db.Cat_condiciones_ambientales.insert(nombre='Viento')
+            db.Cat_condiciones_ambientales.insert(nombre='Nieve')
+            db.Cat_condiciones_ambientales.insert(nombre='Neblina')
+
+        ##########################################################################
+        ## Pestaña Impactos ambientales
+        ########################################################################
+
+        if db(db.Cat_tipo_impacto.id>0).count() == 0:
+            db.Cat_tipo_impacto.insert(nombre='Incendios')
+            db.Cat_tipo_impacto.insert(nombre='Huracanes')
+            db.Cat_tipo_impacto.insert(nombre='Inundaciones')
+            db.Cat_tipo_impacto.insert(nombre='Apertura de caminos')
+            db.Cat_tipo_impacto.insert(nombre='Aprovechamientos forestales')
+            db.Cat_tipo_impacto.insert(nombre='Uso del suelo diferente al forestal')
+            db.Cat_tipo_impacto.insert(nombre='Pastoreo')
+            db.Cat_tipo_impacto.insert(nombre='Plagas y enfermedades')
+            db.Cat_tipo_impacto.insert(nombre='Líneas eléctricas')
+            db.Cat_tipo_impacto.insert(nombre='Actividades mineras')
+            db.Cat_tipo_impacto.insert(nombre='Asentamientos humanos')
+
+        #########################################################################
+
+        if db(db.Cat_severidad_impactos.id>0).count() == 0:
+            db.Cat_severidad_impactos.insert(nombre='1 No perceptible')
+            db.Cat_severidad_impactos.insert(nombre='2 Menor')
+            db.Cat_severidad_impactos.insert(nombre='3 Mediana')
+            db.Cat_severidad_impactos.insert(nombre='4 Mayor')
+
+        #########################################################################
+
+        if db(db.Cat_agente_impactos.id>0).count() == 0:
+            db.Cat_agente_impactos.insert(nombre='1 Barrenador')
+            db.Cat_agente_impactos.insert(nombre='2 Defoliador')
+            db.Cat_agente_impactos.insert(nombre='3 Descortezador')
+            db.Cat_agente_impactos.insert(nombre='4 Muérdagos')
+
+        #########################################################################
+
+        if db(db.Cat_estatus_impactos.id>0).count() == 0:
+            db.Cat_estatus_impactos.insert(nombre='1 Activa')
+            db.Cat_estatus_impactos.insert(nombre='2 Inactiva')
+
+        #########################################################################
+
+        if db(db.Cat_prop_afectacion.id>0).count() == 0:
+            db.Cat_prop_afectacion.insert(nombre='Menor a 10%')
+            db.Cat_prop_afectacion.insert(nombre='10 a 30%')
+            db.Cat_prop_afectacion.insert(nombre='30 a 50%')
+            db.Cat_prop_afectacion.insert(nombre='50 a 70%')
+            db.Cat_prop_afectacion.insert(nombre='70 a 90%')
+            db.Cat_prop_afectacion.insert(nombre='Más de 90%')
+
+        #########################################################################
+
+        if db(db.Cat_incendio.id>0).count() == 0:
+            db.Cat_incendio.insert(nombre='Subterráneo')
+            db.Cat_incendio.insert(nombre='Superficial')
+            db.Cat_incendio.insert(nombre='Aéreo copa')
 
         response.flash = 'Éxito'
         

@@ -23,31 +23,35 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [
+
+    ### Fusionar datos
     (T('Fusionar datos'), False, URL('1_fusionar_f', 'index'), []),
-    # (T('Cámara'), False, URL('2_camara', 'index'), []),
-    # (T('Grabadora'), False, URL('3_grabadora', 'index'), []),
-    # (T('Especies invasoras'), False, URL('4_especies_invasoras', 'index1'), [
-    #   (T('Transecto especies invasoras'), False, URL('4_especies_invasoras', 'index1')),
-    #   (T('Especies invasoras'), False, URL('4_especies_invasoras', 'index2'))]),
-    # (T('Huellas y excretas'), False, URL('5_huellas_excretas', 'index1'), [
-    #   (T('Transecto huellas y excretas'), False, URL('5_huellas_excretas', 'index1')),
-    #   (T('Huellas y excretas'), False, URL('5_huellas_excretas', 'index2'))]),
-    # (T('Registros extra'), False, URL('6_registros_extra', 'index1'), [
-    #   (T('Especies invasoras'), False, URL('6_registros_extra', 'index1')),
-    #   (T('Huellas y excretas'), False, URL('6_registros_extra', 'index2')),
-    #   (T('Especímenes y restos'), False, URL('6_registros_extra', 'index3'))]),
-    # Edición
+
+    ### Edición
     (T('Revisar registros'), False, URL('2_editar_f', 'editarConglomerado'), [
       (T('Conglomerado'), False, URL('2_editar_f', 'editarConglomerado')),
-      (T('Cámara'), False, URL('2_editar_f', 'editarCamara')),
-      (T('Grabadora'), False, URL('2_editar_f', 'editarGrabadora')),
+      (T('Conteo de aves'), False, URL('2_editar_f', 'editarConteoAves')),
       (T('Especies Invasoras'), False, URL('2_editar_f', 'editarEspeciesInvasoras')),
       (T('Huellas y excretas'), False, URL('2_editar_f', 'editarHuellasExcretas')),
+      (T('Material leñoso'), False, URL('2_editar_f', 'editarCarbonoRamas')),
+      (T('Carbono mantillo'), False, URL('2_editar_f', 'editarCarbono')),
+      (T('Árboles pequeños'), False, URL('2_editar_f', 'editarArbolTransecto')),
+      (T('Árboles grandes'), False, URL('2_editar_f', 'editarArbolCuadrante')),
+      (T('Epífitas'), False, URL('2_editar_f', 'editarEpifitas')),
+      (T('Incendios'), False, URL('2_editar_f', 'editarIncendio')),
+      (T('Plagas'), False, URL('2_editar_f', 'editarPlaga')),
+      (T('Impactos ambientales'), False, URL('2_editar_f', 'editarImpacto')),
+      (T('Cámara'), False, URL('2_editar_f', 'editarCamara')),
+      (T('Grabadora'), False, URL('2_editar_f', 'editarGrabadora')),
       (T('Especies Invasoras extra'), False, URL('2_editar_f', 'editarEspeciesInvasorasExtra')),
       (T('Huellas y excretas extra'), False, URL('2_editar_f', 'editarHuellasExcretasExtra')),
-      (T('Especímenes extra'), False, URL('2_editar_f', 'editarEspecimenExtra'))]),
-    (T('Revisar imágenes'), False, URL('3_revisar_f', 'index'), []),
-    # Exportación
+      (T('Especímenes extra'), False, URL('2_editar_f', 'editarEspecimenExtra')),
+      ]),
+
+    ### Selección de fauna
+    (T('Selección de fauna'), False, URL('3_revisar_f', 'index'), []),
+    
+    ### Exportación
     (T('Exportar datos'), False, URL('4_exportar_f', 'index'), [])
     ]
     
