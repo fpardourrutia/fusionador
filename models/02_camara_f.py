@@ -68,12 +68,13 @@ db.define_table('Imagen_referencia_camara',*Campos_Imagen_referencia_camara,
 Campos_Archivo_camara = [
 	Field('camara_id','reference Camara'),
     Field('archivo_nombre_original'),
-    Field('archivo','upload'),
+    Field('archivo','upload',autodelete=True),
 # uploadfolder='static/pictures'),      pensar estructura de carpetas
     Field('presencia','boolean'),
     Field('nombre_comun','string'),
     Field('nombre_cientifico','string'),
+    Field('numero_individuos','integer')
     ]
 
 db.define_table('Archivo_camara',*Campos_Archivo_camara, 
-	singular='Archivo cámara',plural='Archivos cámaras')
+	singular='Archivo cámara',plural='Archivos cámara')

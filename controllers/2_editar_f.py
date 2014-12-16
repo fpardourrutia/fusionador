@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 
 # def manage_users():
 #     form = SQLFORM.grid(db.Huella_excreta.hay_nombre_comun==False,user_signature=False)
@@ -60,7 +60,7 @@ db.Sitio_muestra.elipsoide.requires=IS_IN_DB(db,db.Cat_elipsoide.nombre,
     '%(nombre)s')
 
 # Cámara
-db.Camara.nombre.requires=IS_IN_DB(db,db.Cat_nombre_camara.nombre,'%(nombre)s')
+# db.Camara.nombre.requires=IS_IN_DB(db,db.Cat_nombre_camara.nombre,'%(nombre)s')
 db.Camara.elipsoide.requires=IS_IN_DB(db,db.Cat_elipsoide.nombre,'%(nombre)s')
 db.Camara.resolucion.requires=IS_IN_DB(db,db.Cat_resolucion_camara.nombre,
     '%(nombre)s')
@@ -130,6 +130,8 @@ def editarConglomerado():
         linked_tables=['Sitio_muestra', 'Imagen_referencia_sitio'],
         user_signature=False, 
         csv=False,
+        maxtextlengths={'Imagen_referencia_sitio.archivo_nombre_original' : 50},
+        headers={'Sitio_muestra.existe' : 'Muestreado'}
         )
     return dict(form=form)
     
@@ -139,7 +141,9 @@ def editarCamara():
     db.Archivo_camara.camara_id.writable = False
     form = SQLFORM.smartgrid(db.Camara,        
         csv=False,
-        user_signature=False)
+        user_signature=False, 
+        maxtextlengths={'Archivo_camara.archivo_nombre_original' : 50,
+        'Imagen_referencia_camara.archivo_nombre_original' : 50})
     return dict(form=form)
 
 def editarGrabadora():
@@ -152,7 +156,12 @@ def editarGrabadora():
         #linked_tables=['Imagen_referencia_microfonos', 
         #    'Archivo_referencia_grabadora', 'Archivo_grabadora'],
         csv=False,
-        user_signature=False)
+        user_signature=False, 
+        maxtextlengths={'Archivo_grabadora.archivo_nombre_original' : 50,
+        'Imagen_referencia_grabadora.archivo_nombre_original' : 50,
+        'Imagen_referencia_microfonos.archivo_nombre_original' : 50,
+        'Archivo_referencia_grabadora.archivo_nombre_original' : 50,
+        'Imagen_referencia_microfonos.archivo_nombre_original' : 50})
     return dict(form=form)
 
 def editarEspeciesInvasoras():
@@ -162,6 +171,7 @@ def editarEspeciesInvasoras():
     form = SQLFORM.smartgrid(db.Transecto_especies_invasoras_muestra,
         #linked_tables=['Especie_invasora'],
         csv=False,
+        maxtextlengths={'Archivo_especie_invasora.archivo_nombre_original' : 50},
         user_signature=False)
     return dict(form=form)
 
@@ -170,9 +180,11 @@ def editarHuellasExcretas():
     db.Huella_excreta.transecto_huellas_excretas_id.writable = False
     db.Archivo_huella_excreta.huella_excreta_id.writable =False
     form = SQLFORM.smartgrid(db.Transecto_huellas_excretas_muestra,
-        linked_tables=['Huella_excreta'],
+        #linked_tables=['Huella_excreta'],
         csv=False,
-        user_signature=False)
+        maxtextlengths={'Archivo_huella_excreta.archivo_nombre_original' : 50},
+        user_signature=False,
+        headers={'Huella_excreta.es_huella' : 'Huella'})
     return dict(form=form)
 
 def editarEspeciesInvasorasExtra():
@@ -180,6 +192,7 @@ def editarEspeciesInvasorasExtra():
     db.Archivo_especie_invasora_extra.especie_invasora_extra_id.writable=False    
     form = SQLFORM.smartgrid(db.Especie_invasora_extra,
         csv=False,
+        maxtextlengths={'Archivo_especie_invasora_extra.archivo_nombre_original' : 50},
         user_signature=False)
     return dict(form=form)
 
@@ -188,7 +201,9 @@ def editarHuellasExcretasExtra():
     db.Archivo_huella_excreta_extra.huella_excreta_extra_id.writable = False
     form = SQLFORM.smartgrid(db.Huella_excreta_extra,
         csv=False,
-        user_signature=False)
+        maxtextlengths={'Archivo_huella_excreta_extra.archivo_nombre_original' : 50},
+        user_signature=False,
+        headers={'Huella_excreta_extra.es_huella' : 'Huella'})
     return dict(form=form)
 
 def editarEspecimenExtra():
@@ -196,6 +211,7 @@ def editarEspecimenExtra():
     db.Archivo_especimen_restos_extra.especimen_restos_extra_id.writable = False
     form = SQLFORM.smartgrid(db.Especimen_restos_extra,
         csv=False,
+        maxtextlengths={'Archivo_especimen_restos_extra.archivo_nombre_original' : 50},
         user_signature=False)
     return dict(form=form)
 

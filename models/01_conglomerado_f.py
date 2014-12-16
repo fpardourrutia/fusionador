@@ -22,6 +22,9 @@ Campos_Conglomerado_muestra = [
     Field('tenencia','string'),
     Field('uso_suelo_tipo', 'string'),
 
+    #Campo oculto identificador SAR-MOD, SAC-MOD
+    Field('monitoreo_tipo','string',),    
+
     #Los dos siguientes campos sólo se eligen si uso_suelo_tipo="Vegetación"
 
     #Se insertará a partir de un catálogo
