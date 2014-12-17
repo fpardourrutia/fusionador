@@ -50,7 +50,7 @@ def obtenerFotografia():
 
         #else:
 
-        revisionHTML += "<img src='/fusionador/3_revisar_f/download/"+datosFoto.archivo+\
+        revisionHTML += "<img src='/init/3_revisar_f/download/"+datosFoto.archivo+\
             "' alt='Error al cargar la fotografía' style='width:800px;height:600px;'/>"
 
         revisionHTML +="</center><hr/><div><div style='float:left;padding-right:60px;'><label "+\
