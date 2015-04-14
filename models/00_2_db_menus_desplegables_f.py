@@ -61,3 +61,5 @@ db.define_table('Cat_prop_afectacion',Field('nombre','string',required='TRUE'))
 db.define_table('Cat_incendio',Field('nombre','string',required='TRUE'))
 
 #########################################################################
+
+db.define_table('Cat_conabio_aves', Field('nombre', 'string', required='TRUE'))
