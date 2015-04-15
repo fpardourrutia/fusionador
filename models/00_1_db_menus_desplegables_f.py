@@ -52,7 +52,7 @@ db.define_table('Cat_sensibilidad_camara', Field('nombre', 'string', required='T
 ## Pestaña Grabadora
 ########################################################################
 
-# db.define_table('Cat_nombre_grabadora', Field('nombre', 'string', required='TRUE'))
+db.define_table('Cat_nombre_grabadora', Field('nombre', 'string', required='TRUE'))
 
 ##########################################################################
 ## Pestaña Especies Invasoras / Pestaña Huellas y excretas
