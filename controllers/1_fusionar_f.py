@@ -51,10 +51,8 @@ def index():
             db(db.Cat_vegetacion_conglomerado).delete()
             db(db.Cat_numero_sitio).delete()
             db(db.Cat_elipsoide).delete()
-            db(db.Cat_nombre_camara).delete()
             db(db.Cat_resolucion_camara).delete()
             db(db.Cat_sensibilidad_camara).delete()
-            # db(db.Cat_nombre_grabadora).delete()
             db(db.Cat_numero_transecto).delete()
             db(db.Cat_numero_individuos).delete()
             db(db.Cat_conabio_invasoras).delete()
@@ -186,12 +184,6 @@ def index():
         ## Pestaña Camara
         ########################################################################
 
-        if db(db.Cat_nombre_camara.id>0).count() == 0:
-            db.Cat_nombre_camara.insert(nombre='Cámara 1')
-            db.Cat_nombre_camara.insert(nombre='Cámara 2')
-
-        #########################################################################
-
         if db(db.Cat_resolucion_camara.id>0).count() == 0:
             db.Cat_resolucion_camara.insert(nombre='5MP')
             db.Cat_resolucion_camara.insert(nombre='12MP')
@@ -208,10 +200,6 @@ def index():
         ## Pestaña Grabadora
         ########################################################################
  
-        # if db(db.Cat_nombre_grabadora.id>0).count() == 0:
-        #     db.Cat_nombre_grabadora.insert(nombre='Grabadora 1')
-        #     db.Cat_nombre_grabadora.insert(nombre='Grabadora 2')
-
         ##########################################################################
         ## Pestaña Especies Invasoras / Pestaña Huellas y excretas
         ######################################################################## 
