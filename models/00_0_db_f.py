@@ -12,7 +12,8 @@
 if not request.env.web2py_runtime_gae:
     ## if NOT running on Google App Engine use SQLite or other DB
     # La base de datos debe existir
-    db = DAL('postgres://fpardo:Kamatar1@localhost/postgres',db_codec='UTF-8',check_reserved=['all'])
+    db = DAL('postgres://fpardo:Kamatar1@localhost/snmb_fusion_1', 
+        db_codec='UTF-8',check_reserved=['all'], migrate = False)
     #db = DAL('sqlite://storage.db',check_reserved=['all'])
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
