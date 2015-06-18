@@ -62,4 +62,6 @@ db.define_table('Cat_incendio',Field('nombre','string',required='TRUE'))
 
 #########################################################################
 
-db.define_table('Cat_conabio_aves', Field('nombre', 'string', required='TRUE'))
+db.define_table('Cat_conabio_aves',
+	Field('nombre_comun', 'string', required='TRUE'),
+	Field('nombre_cientifico', 'string', required='TRUE'))

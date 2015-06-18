@@ -251,7 +251,7 @@ def editarArbolTransecto():
     return dict(form=form)
 
 def editarEpifitas():
-    db.Informacion_epifitas.sitio_muestra_id.writable = False
+    db.Informacion_epifitas.conglomerado_muestra_id.writable = False
     form = SQLFORM.smartgrid(db.Informacion_epifitas,
         csv=False,
         user_signature=False)

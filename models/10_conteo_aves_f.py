@@ -29,8 +29,9 @@ db.define_table('Punto_conteo_aves',*Campos_Punto_conteo_aves,
 Campos_Conteo_ave =[
 
 	Field('punto_conteo_aves_id','reference Punto_conteo_aves'),
-	Field('nombre_en_lista','boolean'),
+	Field('nombre_comun_en_lista','boolean'),
 	Field('nombre_comun','string'),
+	Field('nombre_cientifico_en_lista','boolean'),
     Field('nombre_cientifico','string'),
     Field('es_visual','boolean'),
     Field('es_sonora','boolean'),
