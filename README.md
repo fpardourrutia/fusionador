@@ -5,5 +5,5 @@ El fusionador es una aplicación de Web2py, que recibe archivos CSV (generados p
 
 1. 
 
-#Observaciones:
+###Observaciones:
 1. 
