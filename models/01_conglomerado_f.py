@@ -23,7 +23,10 @@ Campos_Conglomerado_muestra = [
     Field('uso_suelo_tipo', 'string'),
 
     #Campo oculto identificador SAR-MOD, SAC-MOD
-    Field('monitoreo_tipo','string',),    
+    Field('monitoreo_tipo','string',),
+
+    #Campo único para el fusionador CONANP/CONAFOR/FMCN
+    Field('institucion','string',),
 
     #Los dos siguientes campos sólo se eligen si uso_suelo_tipo="Vegetación"
 
