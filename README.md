@@ -19,6 +19,7 @@ El fusionador tiene 4 controladores:
 Lee los archivos CSV, y para cada archivo CSV:
 
 Lo registra en la base de datos y lo inserta en uploads
+
 Borra los catálogos (paso que hay que ver si es necesario)
 
 Al final inserta los catálogos otra vez.
