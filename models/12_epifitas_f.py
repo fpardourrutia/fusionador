@@ -9,7 +9,7 @@
 
 Campos_Informacion_epifitas = [
 
-    Field('conglomerado_muestra_id','reference Sitio_muestra'),
+    Field('conglomerado_muestra_id','reference Conglomerado_muestra'),
     Field('helechos_observados','boolean'),
     Field('orquideas_observadas','boolean'),
     Field('musgos_observados','boolean'),
