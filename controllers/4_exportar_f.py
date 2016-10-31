@@ -2,7 +2,7 @@
 # intente algo como
 def index():
 
-#Forma para que el usuario introduzca el nombre del archivo a exportar.
+# Forma para que el usuario introduzca el nombre del archivo a exportar.
 
     Campos_forma = [
         INPUT(_name='nombre_archivo',_type='string',requires=IS_ALPHANUMERIC()),
@@ -12,7 +12,7 @@ def index():
 
     if forma.accepts(request.vars,formname='formaHTML'):
         
-        #Asignando el nombre al archivo CSV que contendrá la base de datos
+        # Asignando el nombre al archivo CSV que contendrá la base de datos
         nombreCSV = "base_final_" + forma.vars['nombre_archivo'] + ".csv"
         
         #Generando el archivo

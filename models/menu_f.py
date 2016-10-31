@@ -24,34 +24,46 @@ response.google_analytics_id = None
 
 response.menu = [
 
-    ### Fusionar datos
+    ###########################################
+    # Fusionar datos
+    ###########################################
+
+
     (T('Fusionar datos'), False, URL('1_fusionar_f', 'index'), []),
 
-    ### Edición
-    (T('Revisar registros'), False, URL('2_editar_f', 'editarConglomerado'), [
-      (T('Conglomerado'), False, URL('2_editar_f', 'editarConglomerado')),
-      (T('Conteo de aves'), False, URL('2_editar_f', 'editarConteoAves')),
-      (T('Especies Invasoras'), False, URL('2_editar_f', 'editarEspeciesInvasoras')),
-      (T('Huellas y excretas'), False, URL('2_editar_f', 'editarHuellasExcretas')),
-      (T('Material leñoso'), False, URL('2_editar_f', 'editarCarbonoRamas')),
-      (T('Carbono mantillo'), False, URL('2_editar_f', 'editarCarbono')),
-      (T('Árboles pequeños'), False, URL('2_editar_f', 'editarArbolTransecto')),
-      (T('Árboles grandes'), False, URL('2_editar_f', 'editarArbolCuadrante')),
-      (T('Epífitas'), False, URL('2_editar_f', 'editarEpifitas')),
-      (T('Incendios'), False, URL('2_editar_f', 'editarIncendio')),
-      (T('Plagas'), False, URL('2_editar_f', 'editarPlaga')),
-      (T('Impactos ambientales'), False, URL('2_editar_f', 'editarImpacto')),
-      (T('Cámara'), False, URL('2_editar_f', 'editarCamara')),
-      (T('Grabadora'), False, URL('2_editar_f', 'editarGrabadora')),
-      (T('Especies Invasoras extra'), False, URL('2_editar_f', 'editarEspeciesInvasorasExtra')),
-      (T('Huellas y excretas extra'), False, URL('2_editar_f', 'editarHuellasExcretasExtra')),
-      (T('Especímenes extra'), False, URL('2_editar_f', 'editarEspecimenExtra')),
+    ###########################################
+    # Revisar registros
+    ###########################################
+    
+    (T('Revisar registros'), False, URL('2_revisar_registros_f', 'conglomerado'), [
+      (T('Conglomerado'), False, URL('2_revisar_registros_f', 'conglomerado')),
+      (T('Conteo de aves'), False, URL('2_revisar_registros_f', 'punto_conteo_aves')),
+      (T('Especies invasoras y huellas/excretas'), False, URL('2_revisar_registros_f', 'transecto_muestra')),
+      (T('Material leñoso caído'), False, URL('2_revisar_registros_f', 'transecto_ramas')),
+      (T('Carbono en el mantillo'), False, URL('2_revisar_registros_f', 'punto_carbono')),
+      (T('Árboles pequeños'), False, URL('2_revisar_registros_f', 'arbol_transecto')),
+      (T('Árboles grandes'), False, URL('2_revisar_registros_f', 'arbol_cuadrante')),
+      (T('Epífitas'), False, URL('2_revisar_registros_f', 'informacion_epifitas')),
+      (T('Incendios'), False, URL('2_revisar_registros_f', 'incendio')),
+      (T('Plagas'), False, URL('2_revisar_registros_f', 'plaga')),
+      (T('Impactos ambientales'), False, URL('2_revisar_registros_f', 'impacto_actual')),
+      (T('Trampa cámara'), False, URL('2_revisar_registros_f', 'camara')),
+      (T('Grabadora'), False, URL('2_revisar_registros_f', 'grabadora')),
+      (T('Especies invasoras extra'), False, URL('2_revisar_registros_f', 'especie_invasora_extra')),
+      (T('Huellas/excretas extra'), False, URL('2_revisar_registros_f', 'huella_excreta_extra')),
+      (T('Especímenes/restos extra'), False, URL('2_revisar_registros_f', 'especimen_restos_extra'))
       ]),
 
-    ### Selección de fauna
-    (T('Selección de fauna'), False, URL('3_revisar_f', 'index'), []),
+    ###########################################
+    # Selección de fauna
+    ###########################################
+
+    (T('Selección de fauna'), False, URL('3_seleccion_fauna_f', 'index'), []),
     
-    ### Exportación
+    ###########################################
+    # Exportar datos
+    ###########################################
+
     (T('Exportar datos'), False, URL('4_exportar_f', 'index'), [])
     ]
     

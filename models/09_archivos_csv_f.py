@@ -3,9 +3,9 @@
 ## En esta sección se definen una tabla auxiliar, que sirve para guardar los archivos csv
 ## subidos, antes de ser exportados a la base de datos.
 
-########################
-#Conglomerado_muestra
-########################
+###########################################
+# Archivo CSV
+###########################################
 
 Campos_Archivo_csv = [
 

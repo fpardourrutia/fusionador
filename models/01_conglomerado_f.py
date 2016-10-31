@@ -1,38 +1,36 @@
 # coding: utf8
 
-## En esta sección se definen las tablas correspondientes a la pestaña de Conglomerado, es decir: Conglomerado_muestra, Sitio_muestra y Reference_image_site:
-## El campo de ID es automático en Web2py, por lo que no se incluye:
+## En esta sección se definen las tablas correspondientes a la sección de
+## Conglomerado. El campo de ID es automático en Web2py, por lo que no se incluye:
 
-###Se eliminó el requisito de que algunos campos sean requeridos para mayor flexibilidad en el fusionador.
-
-########################
-#Conglomerado_muestra
-########################
+###########################################
+# Conglomerado_muestra
+###########################################
 
 Campos_Conglomerado_muestra = [
 
-	Field('nombre','string'),
-	Field('fecha_visita','date'),
-	Field('predio','string'),
-	Field('compania','string'),
+	Field('nombre','integer',required=True),
+	Field('fecha_visita','date',required=True),
+	Field('predio','string',required=True),
+	Field('compania','string',required=True),
 	#Se insertarán a partir de un catálogo
-	Field('tipo','string'),
-    Field('estado','string'),
-    Field('municipio','string'),
-    Field('tenencia','string'),
-    Field('uso_suelo_tipo', 'string'),
+	Field('tipo','string',required=True),
+	Field('estado','string',required=True),
+	Field('municipio','string',required=True),
+	Field('tenencia','string',required=True),
+	Field('uso_suelo_tipo', 'string',required=True),
 
-    #Campo oculto identificador SAR-MOD, SAC-MOD
-    Field('monitoreo_tipo','string',),
+	#Campo oculto identificador SAR-MOD, SAC-MOD
+	Field('monitoreo_tipo','string',required=True),
 
     #Campo único para el fusionador CONANP/CONAFOR/FMCN
-    Field('institucion','string',),
+    Field('institucion','string'),
 
-    #Los dos siguientes campos sólo se eligen si uso_suelo_tipo="Vegetación"
+	#Los dos siguientes campos sólo se eligen si uso_suelo_tipo="Vegetación"
 
-    #Se insertará a partir de un catálogo
+	#Se insertará a partir de un catálogo
 	Field('vegetacion_tipo','string'),
-    Field('perturbado','boolean'),
+	Field('perturbado','boolean'),
 
 	Field('comentario','text')
 	]
@@ -40,15 +38,30 @@ Campos_Conglomerado_muestra = [
 db.define_table('Conglomerado_muestra', *Campos_Conglomerado_muestra, 
 	singular='Conglomerado', plural='Conglomerados')
 
-########################
-#Sitio_muestra
-########################
+###########################################
+# Formato_campo
+###########################################
+
+Campos_Formato_campo = [
+
+	Field('conglomerado_muestra_id','reference Conglomerado_muestra',required=True),
+	Field('archivo_nombre_original','string',required=True),
+	Field('archivo','upload',autodelete=True,required=True)
+	]
+	
+db.define_table('Formato_campo', *Campos_Formato_campo, 
+	singular='Formato de campo', plural='Formatos de campo')
+
+
+###########################################
+# Sitio_muestra
+###########################################
 
 Campos_Sitio_muestra = [
 
-	Field('conglomerado_muestra_id','reference Conglomerado_muestra'),
-	Field('sitio_numero','string'),
-	Field('existe', 'boolean'),
+	Field('conglomerado_muestra_id','reference Conglomerado_muestra',required=True),
+	Field('sitio_numero','string',required=True),
+	Field('existe', 'boolean',required=True),
 
 	Field('lat_grado','integer'),
 	Field('lat_min','integer'),
@@ -56,31 +69,31 @@ Campos_Sitio_muestra = [
 	Field('lon_grado','integer'),
 	Field('lon_min','integer'),
 	Field('lon_seg','double'),
-    Field('altitud','double'),
-    Field('gps_error','double'),
+	Field('altitud','double'),
+	Field('gps_error','double'),
 
-    #Se insertará a partir de un catálogo
+	#Se insertará a partir de un catálogo
 	Field('elipsoide','string'), 
 	
-    Field('hay_evidencia','boolean')
-    ] 
+	Field('hay_evidencia','boolean')
+	] 
 
-db.define_table('Sitio_muestra',*Campos_Sitio_muestra,singular='Sitio', 
-	plural='Sitios')
+db.define_table('Sitio_muestra', *Campos_Sitio_muestra,
+	singular='Sitio', plural='Sitios')
 
-########################
-#Imagen_referencia_sitio
-########################
+###########################################
+# Imagen_referencia_sitio
+###########################################
 
 Campos_Imagen_referencia_sitio = [
 
-	Field('sitio_muestra_id','reference Sitio_muestra'),
-    Field('archivo_nombre_original'),
-    Field('archivo','upload',autodelete=True)
-    ]
-    
-db.define_table('Imagen_referencia_sitio',*Campos_Imagen_referencia_sitio, 
-	singular='Imagen sitio',plural='Imágenes sitios')
+	Field('sitio_muestra_id','reference Sitio_muestra',required=True),
+	Field('archivo_nombre_original','string',required=True),
+	Field('archivo','upload',autodelete=True,required=True)
+	]
+	
+db.define_table('Imagen_referencia_sitio', *Campos_Imagen_referencia_sitio, 
+	singular='Imagen sitio', plural='Imágenes sitios')
 
 ########################################################################
 ## Fields can be 'string','text','password','integer','double','boolean'
